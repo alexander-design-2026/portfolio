@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Портфолио Александра Петухова, графического и motion-дизайнера: проекты, шоурил и контакты." name="description"/>
+<title>Александр Петухов | Graphic & Motion Designer Portfolio</title>
+<style>
+    @font-face {
+      font-family: "Steelfish";
+      src: local("Steelfish"),
+           local("Steelfish Regular"),
+           local("SteelfishRg-Regular");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #1c1c1e;
+      --surface: #202022;
+      --accent: #fa5926;
+      --text: #f4f4f2;
+      --muted: #9a9a9c;
+      --line: #b8b8ba;
+      --video: #753421;
+
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --container: 1180px;
+      --section-gap: 88px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .page {
+      width: min(calc(100% - 40px), var(--container));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .section {
+      margin-top: var(--section-gap);
+      scroll-margin-top: 32px;
+      content-visibility: auto;
+      contain-intrinsic-size: 720px;
+    }
+
+    .eyebrow,
+    .section-title,
+    .hero-title,
+    .footer-title {
+      color: var(--accent);
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1;
+    }
+
+    .display {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-stretch: condensed;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: transparent;
+    }
+
+    /* Навигация */
+
+    .header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 4px 0 18px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+
+    .nav a {
+      color: var(--accent);
+      font-size: 13px;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      opacity: 0.65;
+    }
+
+    @media (min-width: 681px) {
+      .nav {
+        gap: 36px;
+      }
+
+      .nav a {
+        padding: 6px 0;
+        font-size: 16px;
+      }
+    }
+
+    /* Первый экран */
+
+    .hero-main {
+      min-height: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 44px;
+      container-type: inline-size;
+    }
+
+    .hero-title {
+      width: max-content;
+      max-width: 100%;
+      margin: 0;
+      font-family: "Steelfish", "Arial Narrow", Impact, sans-serif;
+      font-size: clamp(54px, 17cqw, 196px);
+      font-weight: 400;
+      line-height: 0.78;
+      letter-spacing: 0.02em;
+      text-align: center;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .hero-signature {
+      width: min(100%, 980px);
+      margin: 34px auto 0;
+      display: grid;
+      grid-template-columns: 110px 132px minmax(0, 1fr);
+      grid-template-rows: auto auto;
+      column-gap: 28px;
+      row-gap: 22px;
+      align-items: start;
+    }
+
+    .hero-curve-arrow {
+      width: 110px;
+      height: 82px;
+      margin-top: 8px;
+      color: var(--accent);
+    }
+
+    .hero-eye-box {
+      width: 132px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--text);
+      border-radius: 28px;
+    }
+
+    .hero-eye-box svg {
+      width: 82px;
+      height: 82px;
+    }
+
+    .hero-identity {
+      min-width: 0;
+    }
+
+    .hero-name {
+      min-height: 132px;
+      padding: 18px 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: clamp(38px, 4.4vw, 68px);
+      line-height: 1;
+      border: 2px solid var(--text);
+      border-radius: 28px;
+    }
+
+    .hero-role {
+      margin-top: 12px;
+      padding-right: 28px;
+      color: var(--text);
+      font-size: clamp(18px, 2vw, 28px);
+      text-align: right;
+    }
+
+    .hero-down-arrow {
+      grid-column: 3;
+      justify-self: start;
+      width: 34px;
+      height: 84px;
+      margin-left: 36px;
+      color: var(--accent);
+    }
+
+    /* Блок «Обо мне» */
+
+    .about-card {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.42fr);
+      gap: clamp(42px, 6vw, 92px);
+      align-items: stretch;
+      padding: 18px 64px 18px 18px;
+      border-width: 2px;
+      border-radius: 24px;
+    }
+
+    .about-photo {
+      min-height: 420px;
+      overflow: hidden;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 58% 30%, rgba(255, 255, 255, 0.08), transparent 34%),
+        linear-gradient(145deg, #3b3937, #242426 72%);
+      display: grid;
+      place-items: center;
+      color: #777779;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .about-content {
+      align-self: center;
+      padding: 22px 0;
+    }
+
+    .about-card .section-title,
+    .experience-card .section-title {
+      margin-bottom: 26px;
+      font-size: clamp(44px, 5vw, 68px);
+      line-height: 0.95;
+      font-weight: 700;
+    }
+
+    .about-copy {
+      max-width: 720px;
+      font-size: clamp(19px, 2vw, 28px);
+      line-height: 1.14;
+    }
+
+    .about-copy p {
+      margin: 0 0 28px;
+    }
+
+    .about-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Блок «Опыт работы» */
+
+    .experience-card {
+      padding: clamp(48px, 5vw, 70px) clamp(54px, 6vw, 76px);
+      border-width: 2px;
+      border-radius: 24px;
+    }
+
+    .experience-copy {
+      max-width: 1040px;
+      font-size: clamp(19px, 1.75vw, 27px);
+      line-height: 1.16;
+    }
+
+    .experience-copy p {
+      margin: 0 0 30px;
+    }
+
+    .experience-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-transition-arrow {
+      width: 32px;
+      height: 82px;
+      margin: 28px auto -58px;
+      color: var(--accent);
+      display: block;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    /* Кейс с листалкой */
+
+    .project-feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 42px;
+      align-items: stretch;
+    }
+
+    .project-copy-card {
+      min-height: 560px;
+      padding: clamp(34px, 3.4vw, 46px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      text-align: left;
+      border-width: 2px;
+      border-radius: 24px;
+    }
+
+    .project-copy-card h2 {
+      margin: 0 0 8px;
+      font-size: clamp(48px, 4.7vw, 64px);
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .project-subtitle {
+      margin: 0 0 14px;
+      font-size: clamp(21px, 1.85vw, 27px);
+      line-height: 1.15;
+    }
+
+    .project-description {
+      max-width: 540px;
+      margin: 0;
+      font-size: clamp(18px, 1.75vw, 25px);
+      line-height: 1.18;
+    }
+
+    .project-carousel {
+      position: relative;
+      min-width: 0;
+      min-height: 560px;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #242426;
+      outline: 2px solid #313133;
+      outline-offset: -2px;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.45s ease;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      overflow: hidden;
+      background: #242426;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      display: flex;
+      gap: 10px;
+    }
+
+    .carousel-button {
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 50%;
+      background: rgba(28, 28, 30, 0.72);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .carousel-button:hover,
+    .carousel-button:focus-visible {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .carousel-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 27px;
+      z-index: 2;
+      display: flex;
+      gap: 8px;
+      transform: translateX(-50%);
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+    }
+
+    .carousel-dot.is-active {
+      background: var(--accent);
+    }
+
+
+    /* Второй кейс: изображение слева, текст справа */
+
+    .project-feature--reverse {
+      position: relative;
+      padding-top: 54px;
+    }
+
+    .project-feature--reverse .project-carousel {
+      order: 1;
+    }
+
+    .project-feature--reverse .project-copy-card {
+      order: 2;
+      justify-content: center;
+      align-items: stretch;
+      text-align: right;
+    }
+
+    .project-feature--reverse .project-copy-card h2 {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 0 30px;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .project-feature--reverse .project-subtitle {
+      width: 100%;
+      max-width: 540px;
+      margin: 0 0 48px auto;
+      font-size: clamp(20px, 1.72vw, 26px);
+      line-height: 1.18;
+      text-align: right;
+    }
+
+    .project-feature--reverse .project-description {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 0 0 auto;
+      text-align: right;
+    }
+
+    .project-heart {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 34px;
+      height: 34px;
+      color: var(--accent);
+      transform: translateX(-50%);
+    }
+
+    /* Шоурил */
+
+    .showreel-title {
+      margin-bottom: 24px;
+    }
+
+    .video-placeholder {
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+      background: var(--video);
+      border-radius: var(--radius-lg);
+    }
+
+    .play-button {
+      width: 118px;
+      aspect-ratio: 1;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.42);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .play-button::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      margin-left: 10px;
+      border-top: 24px solid transparent;
+      border-bottom: 24px solid transparent;
+      border-left: 38px solid var(--text);
+    }
+
+    /* Финальный экран */
+
+    .footer {
+      padding: 110px 0 24px;
+      text-align: center;
+    }
+
+    .footer-title {
+      margin: 0 0 48px;
+      font-size: clamp(58px, 8vw, 120px);
+      line-height: 0.9;
+    }
+
+    .footer-name {
+      margin: 0 0 34px;
+      font-size: clamp(22px, 2.5vw, 34px);
+    }
+
+    .contacts {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 22px 50px;
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    .contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-icon {
+      color: var(--accent);
+      font-size: 23px;
+    }
+
+    /* Адаптив */
+
+    @media (max-width: 900px) {
+      :root {
+        --section-gap: 64px;
+      }
+
+      .hero-main {
+        min-height: 260px;
+        padding: 34px 20px;
+      }
+
+      .hero-signature {
+        grid-template-columns: 82px 112px minmax(0, 1fr);
+        column-gap: 20px;
+      }
+
+      .hero-curve-arrow {
+        width: 82px;
+      }
+
+      .hero-eye-box {
+        width: 112px;
+        border-radius: 24px;
+      }
+
+      .hero-eye-box svg {
+        width: 70px;
+        height: 70px;
+      }
+
+      .hero-name {
+        min-height: 112px;
+        padding-inline: 22px;
+        border-radius: 24px;
+      }
+
+      .about-card {
+        grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+        gap: 34px;
+        padding-right: 34px;
+      }
+
+      .about-photo {
+        min-height: 360px;
+      }
+
+      .project-feature {
+        gap: 24px;
+      }
+
+      .project-copy-card,
+      .project-carousel,
+      .carousel-slide {
+        min-height: 460px;
+      }
+
+      .video-placeholder {
+        min-height: 400px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(calc(100% - 24px), var(--container));
+        padding-top: 16px;
+      }
+
+      .header {
+        justify-content: center;
+      }
+
+      .nav {
+        justify-content: center;
+        gap: 18px;
+      }
+
+      .hero-main {
+        min-height: 210px;
+      }
+
+      .hero-title {
+        font-size: clamp(54px, 17cqw, 116px);
+      }
+
+      .hero-signature {
+        grid-template-columns: 82px minmax(0, 1fr);
+        grid-template-rows: auto auto auto;
+        column-gap: 14px;
+        row-gap: 14px;
+        margin-top: 24px;
+      }
+
+      .hero-curve-arrow {
+        display: none;
+      }
+
+      .hero-eye-box {
+        width: 82px;
+        grid-column: 1;
+        grid-row: 1;
+        border-radius: 20px;
+      }
+
+      .hero-eye-box svg {
+        width: 52px;
+        height: 52px;
+      }
+
+      .hero-identity {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+      }
+
+      .hero-name {
+        min-height: 82px;
+        padding: 14px 18px;
+        font-size: clamp(27px, 8.2vw, 42px);
+        border-radius: 20px;
+      }
+
+      .hero-role {
+        margin-top: 10px;
+        padding-right: 6px;
+        font-size: 16px;
+      }
+
+      .hero-down-arrow {
+        grid-column: 2;
+        grid-row: 3;
+        width: 28px;
+        height: 62px;
+        margin-left: 20px;
+      }
+
+      .about-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 14px;
+      }
+
+      .about-photo {
+        min-height: 360px;
+      }
+
+      .about-content {
+        padding: 10px 10px 22px;
+      }
+
+      .about-card .section-title,
+      .experience-card .section-title {
+        margin-bottom: 22px;
+        font-size: clamp(40px, 13vw, 58px);
+      }
+
+      .about-copy,
+      .experience-copy {
+        font-size: 18px;
+        line-height: 1.25;
+      }
+
+      .experience-card {
+        padding: 34px 24px;
+      }
+
+      .section-transition-arrow {
+        margin-bottom: -40px;
+      }
+
+      .project-feature {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+
+      .project-feature--reverse {
+        padding-top: 48px;
+      }
+
+      .project-feature--reverse .project-carousel {
+        order: 1;
+      }
+
+      .project-feature--reverse .project-copy-card {
+        order: 2;
+      }
+
+      .project-feature--reverse .project-subtitle {
+        margin-bottom: 30px;
+      }
+
+      .project-feature--reverse .project-copy-card h2 {
+        margin-bottom: 24px;
+      }
+
+      .project-copy-card,
+      .project-carousel,
+      .carousel-slide {
+        min-height: 390px;
+      }
+
+      .project-copy-card {
+        padding: 28px 24px;
+      }
+
+      .project-copy-card h2 {
+        font-size: clamp(44px, 15vw, 64px);
+      }
+
+      .project-subtitle {
+        font-size: 22px;
+      }
+
+      .project-description {
+        font-size: 18px;
+        line-height: 1.25;
+      }
+
+      .video-placeholder {
+        min-height: 280px;
+      }
+
+      .play-button {
+        width: 90px;
+      }
+
+      .footer {
+        padding-top: 80px;
+      }
+
+      .contacts {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  
+
+    #projects .project-subtitle {
+      font-weight: 300;
+    }
+
+    #projects .project-copy-card {
+      justify-content: flex-start;
+    }
+
+    /* Кейс «Дом.ру» */
+
+    .project-feature--domru .project-carousel {
+      order: 1;
+    }
+
+    .project-feature--domru .project-copy-card {
+      order: 2;
+      justify-content: flex-start;
+      align-items: stretch;
+      padding-top: clamp(34px, 3.4vw, 46px);
+      text-align: right;
+    }
+
+    .project-feature--domru .project-copy-card h2 {
+      margin: 0 0 18px;
+      text-align: right;
+      text-transform: none;
+    }
+
+    .project-feature--domru .project-subtitle {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 0 46px auto;
+      text-align: right;
+    }
+
+    .project-feature--domru .project-description {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 0 0 auto;
+      text-align: right;
+    }
+
+    @media (max-width: 680px) {
+      .project-feature--domru .project-carousel {
+        order: 1;
+      }
+
+      .project-feature--domru .project-copy-card {
+        order: 2;
+      }
+
+      .project-feature--domru .project-subtitle {
+        margin-bottom: 30px;
+      }
+    }
+
+
+
+    /* Кейс Deasign agency */
+
+    .project-feature--design .project-copy-card {
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-top: clamp(34px, 3.4vw, 46px);
+      text-align: left;
+    }
+
+    .project-feature--design .project-copy-card h2 {
+      margin: 0 0 42px;
+      font-size: clamp(48px, 4.6vw, 68px);
+      text-transform: none;
+    }
+
+    .project-feature--design .project-description {
+      max-width: 560px;
+      font-size: clamp(19px, 1.75vw, 25px);
+      line-height: 1.22;
+      text-align: left;
+    }
+
+    @media (max-width: 680px) {
+      .project-feature--design .project-copy-card h2 {
+        margin-bottom: 28px;
+      }
+    }
+
+
+    /* Кейс Snow Green */
+
+    .project-feature--snow .project-carousel {
+      order: 1;
+    }
+
+    .project-feature--snow .project-copy-card {
+      order: 2;
+      justify-content: flex-start;
+      align-items: stretch;
+      padding-top: clamp(34px, 3.4vw, 46px);
+      text-align: right;
+    }
+
+    .project-feature--snow .project-copy-card h2 {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 0 34px;
+      margin-left: auto;
+      text-align: right;
+      text-transform: none;
+    }
+
+    .project-feature--snow .project-subtitle {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 0 48px auto;
+      font-size: clamp(20px, 1.72vw, 26px);
+      line-height: 1.2;
+      text-align: right;
+    }
+
+    .project-feature--snow .project-description {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 0 0 auto;
+      text-align: right;
+    }
+
+    @media (max-width: 680px) {
+      .project-feature--snow .project-carousel {
+        order: 1;
+      }
+
+      .project-feature--snow .project-copy-card {
+        order: 2;
+      }
+
+      .project-feature--snow .project-copy-card h2 {
+        margin-bottom: 24px;
+      }
+
+      .project-feature--snow .project-subtitle {
+        margin-bottom: 30px;
+      }
+    }
+
+    /* Исправление ширины и выравнивания кейсов */
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
+    .page,
+    main,
+    .section,
+    .project-feature {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .project-feature {
+      width: 100%;
+      margin-inline: 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-feature > * {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .project-carousel {
+      min-height: 0;
+    }
+
+    .carousel-slide {
+      min-height: 0;
+      height: 100%;
+    }
+
+    #design-agency,
+    .project-feature--design {
+      width: 100%;
+      max-width: 100%;
+      margin-inline: 0;
+      transform: none;
+    }
+
+    .project-feature--design .project-copy-card,
+    .project-feature--design .project-carousel {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .project-feature--design .project-copy-card h2 {
+      max-width: 100%;
+      font-size: clamp(44px, 3.9vw, 60px);
+      overflow-wrap: break-word;
+    }
+
+    @media (max-width: 900px) {
+      .project-copy-card,
+      .project-carousel {
+        min-height: clamp(340px, 44vw, 460px);
+      }
+
+      .carousel-slide {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .project-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .project-copy-card {
+        min-height: auto;
+      }
+
+      .project-carousel {
+        min-height: 0;
+        aspect-ratio: 1 / 1;
+      }
+    }
+
+
+
+    /* Кейс Nutridrink */
+
+    .project-feature--nutridrink .project-copy-card {
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-top: clamp(34px, 3.4vw, 46px);
+      text-align: left;
+    }
+
+    .project-feature--nutridrink .project-copy-card h2 {
+      margin: 0 0 24px;
+      font-size: clamp(48px, 4.6vw, 68px);
+      text-transform: none;
+    }
+
+    .project-feature--nutridrink .project-subtitle {
+      max-width: 560px;
+      margin: 0 0 46px;
+      font-size: clamp(20px, 1.72vw, 26px);
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    .project-feature--nutridrink .project-description {
+      max-width: 570px;
+      font-size: clamp(19px, 1.7vw, 25px);
+      line-height: 1.22;
+      text-align: left;
+    }
+
+    .project-feature--nutridrink .carousel-slide img {
+      object-fit: contain;
+      object-position: center;
+    }
+
+    @media (max-width: 680px) {
+      .project-feature--nutridrink .project-copy-card h2 {
+        margin-bottom: 22px;
+      }
+
+      .project-feature--nutridrink .project-subtitle {
+        margin-bottom: 30px;
+      }
+    }
+
+
+    /* Разделитель между блоками */
+
+    .section-divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: clamp(14px, 2vw, 26px) 0;
+      pointer-events: none;
+    }
+
+    .section-divider img {
+      display: block;
+      width: clamp(26px, 2.1vw, 34px);
+      height: auto;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 760px) {
+      .section-divider {
+        margin: 12px 0 18px;
+      }
+
+      .section-divider img {
+        width: 24px;
+      }
+    }
+
+
+    /* Обновлённый блок Showreel */
+
+    .showreel-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+      align-items: end;
+      gap: clamp(34px, 4vw, 62px);
+      width: 100%;
+    }
+
+    .showreel-video {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      background: var(--video);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .showreel-copy {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-end;
+      text-align: right;
+      padding: 0 6px 18px 0;
+    }
+
+    .showreel-copy h2 {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: clamp(48px, 5vw, 84px);
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .showreel-copy p {
+      max-width: 500px;
+      margin: 0;
+      font-size: clamp(19px, 1.8vw, 25px);
+      line-height: 1.22;
+    }
+
+    .showreel-grid .play-button {
+      width: clamp(86px, 8vw, 120px);
+    }
+
+    @media (max-width: 980px) {
+      .showreel-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+        gap: 28px;
+      }
+
+      .showreel-copy h2 {
+        font-size: clamp(42px, 4.8vw, 66px);
+      }
+
+      .showreel-copy p {
+        font-size: clamp(18px, 2vw, 22px);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .showreel-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .showreel-copy {
+        align-items: flex-start;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 0;
+      }
+
+      .showreel-copy h2 {
+        margin-bottom: 14px;
+        font-size: clamp(40px, 11vw, 58px);
+      }
+
+      .showreel-copy p {
+        max-width: none;
+        font-size: 18px;
+        line-height: 1.3;
+      }
+    }
+
+
+
+    /* Блок о подходе */
+
+    .approach-card {
+      width: 100%;
+      padding: clamp(34px, 3.8vw, 54px) clamp(34px, 4.5vw, 64px);
+      border-width: 2px;
+      border-radius: 24px;
+    }
+
+    .approach-card h2 {
+      max-width: 1080px;
+      margin: 0 0 clamp(24px, 2.4vw, 34px);
+      color: var(--accent);
+      font-size: clamp(38px, 4.15vw, 58px);
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+
+    .approach-copy {
+      max-width: 1180px;
+      font-size: clamp(18px, 1.6vw, 24px);
+      line-height: 1.28;
+    }
+
+    .approach-copy p {
+      margin: 0 0 clamp(20px, 2vw, 28px);
+    }
+
+    .approach-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 760px) {
+      .approach-card {
+        padding: 28px 22px;
+      }
+
+      .approach-card h2 {
+        margin-bottom: 22px;
+        font-size: clamp(34px, 10vw, 48px);
+        line-height: 1.08;
+      }
+
+      .approach-copy {
+        font-size: 17px;
+        line-height: 1.34;
+      }
+
+      .approach-copy p {
+        margin-bottom: 20px;
+      }
+    }
+
+
+    /* Блок с изображением «Спасибо за внимание!» */
+
+    .section--thanks-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .thanks-image-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .thanks-image-wrap img {
+      display: block;
+      width: min(100%, 1320px);
+      height: auto;
+    }
+
+    .footer {
+      padding-top: clamp(10px, 1.8vw, 18px);
+    }
+
+
+    /* Hero-изображение вместо шапки */
+
+    .hero-image-section {
+      width: 100%;
+      margin: 0 0 clamp(28px, 4vw, 56px);
+    }
+
+    .hero-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 760px) {
+      .hero-image-section {
+        margin-bottom: 24px;
+      }
+    }
+
+
+    /* Единые уменьшенные интервалы между блоками */
+
+    :root {
+      --section-gap: 52px;
+    }
+
+    main > .section {
+      margin-top: var(--section-gap);
+    }
+
+    .hero-image-section {
+      margin-bottom: 0;
+      overflow: hidden;
+    }
+
+    /* Немного увеличиваем изображение, чтобы рамка совпала
+       по ширине с нижними блоками. */
+    .hero-image {
+      width: 117.2%;
+      max-width: none;
+      margin-left: -8.6%;
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --section-gap: 42px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      :root {
+        --section-gap: 32px;
+      }
+
+      .hero-image {
+        width: 114%;
+        margin-left: -7%;
+      }
+    }
+
+
+    /* Финальный блок контактов */
+
+    .footer {
+      padding: clamp(28px, 4vw, 54px) 0 clamp(34px, 5vw, 64px);
+      text-align: center;
+    }
+
+    .footer-name {
+      margin: 0 0 clamp(24px, 3vw, 38px);
+      font-size: clamp(26px, 3vw, 42px);
+      line-height: 1.1;
+    }
+
+    .contacts {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: clamp(28px, 6vw, 90px);
+      font-size: clamp(24px, 3.1vw, 42px);
+      line-height: 1;
+    }
+
+    .contact {
+      display: inline-flex;
+      align-items: center;
+      gap: clamp(14px, 2vw, 24px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .contact:hover,
+    .contact:focus-visible {
+      opacity: 0.72;
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      display: inline-grid;
+      place-items: center;
+      color: #8a3d24;
+      flex: 0 0 auto;
+    }
+
+    .contact-icon--phone {
+      width: clamp(26px, 2.8vw, 38px);
+    }
+
+    .contact-icon--telegram {
+      width: clamp(38px, 4.2vw, 56px);
+    }
+
+    .contact-icon svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 680px) {
+      .footer {
+        padding-top: 24px;
+      }
+
+      .footer-name {
+        margin-bottom: 24px;
+        font-size: 26px;
+      }
+
+      .contacts {
+        flex-direction: column;
+        gap: 22px;
+        font-size: 25px;
+      }
+    }
+
+
+    /* Видео в блоке SHOWREEL */
+
+    .showreel-video {
+      background: #000;
+    }
+
+    .showreel-player {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: inherit;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .showreel-player:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+
+    /* Фотография в блоке «Обо мне» */
+
+    .about-photo {
+      padding: 0;
+      background: none;
+    }
+
+    .about-photo-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      object-position: center;
+      border-radius: inherit;
+    }
+
+    @media (max-width: 900px) {
+      .project-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .project-feature .project-copy-card {
+        order: 1;
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .project-feature .project-carousel {
+        order: 2;
+      }
+
+      .project-feature .project-copy-card h2,
+      .project-feature .project-subtitle,
+      .project-feature .project-description {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+      }
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+</style>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Александр Петухов | Graphic & Motion Designer Portfolio"/>
+<meta property="og:description" content="Портфолио Александра Петухова: graphic design, motion design, проекты и шоурил."/>
+<meta property="og:image" content="./assets/images/image-01.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+</head>
+<body>
+<div class="page">
+<header class="header">
+<nav aria-label="Основная навигация" class="nav">
+<a href="#about">Обо мне</a>
+<a href="#projects">Проекты</a>
+<a href="#contacts">Контакты</a>
+</nav>
+</header>
+<main>
+<h1 class="sr-only">Александр Петухов — графический и motion-дизайнер</h1>
+<section aria-label="Портфолио Александра Петухова" class="hero-image-section">
+<img decoding="async" alt="Портфолио Александра Петухова, Graphic/Motion designer" class="hero-image" fetchpriority="high" src="./assets/images/image-01.webp" width="1200" height="650"/>
+</section>
+<section class="section card about-card" id="about">
+<div aria-label="Портрет Александра Петухова" class="about-photo" role="img"><img decoding="async" alt="Александр Петухов" class="about-photo-image" loading="lazy" src="./assets/images/image-02.webp" width="820" height="820"/></div>
+<div class="about-content">
+<h2 class="section-title">Обо мне</h2>
+<div class="about-copy">
+<p>Привет, меня зовут Александр 🙋</p>
+<p>
+              Я Graphic/Motion-дизайнер. В профессии более 5 лет.<br/>
+              Специализируюсь на дизайне социальных сетей.<br/>
+              В своей работе люблю использовать разные подходы к задаче.
+              Начиная от коллажной техники и заканчивая 3D-моушеном.
+            </p>
+<p>
+              Моя суперсила — уникальный подход к рутинным задачам 🙌
+            </p>
+</div>
+</div>
+</section>
+<section class="section card experience-card" id="experience">
+<h2 class="section-title">Опыт работы</h2>
+<div class="experience-copy">
+<p>
+            Общий опыт работы 5+ лет.<br/>
+            Работаю с B2C и B2B-компаниями, беру проекты на фуллтайм и парт-тайм.<br/>
+            Моя работа — создавать красивый и понятный визуал для бизнеса.
+          </p>
+<p>
+            Среди моих проектов: METRO, Avito (услуги ремонт/работа), Хаме, Vici,
+            застройщик STAVNI, Bravolli, Nutridrink, Набеглави, Snow Green,
+            провайдер Дом.ру, Black Star Burger, Demix, платформа Courson,
+            One Price Coffee, Free dog.
+          </p>
+</div>
+</section><section class="section" id="showreel">
+<div class="showreel-grid">
+<div aria-label="Место для видео" class="showreel-video"><video aria-label="Шоурил Александра Петухова" class="showreel-player" controls playsinline preload="none"><source src="./assets/video/showreel.mp4" type="video/mp4"/>Ваш браузер не поддерживает воспроизведение видео.</video></div>
+<article class="showreel-copy">
+<h2>SHOWREEL</h2>
+<p>
+        Я смонтировал шоурил, объединив
+        в нём свои работы за прошедшие
+        11 месяцев.
+      </p>
+</article>
+</div>
+</section>
+<section class="section" id="projects">
+<div class="project-feature">
+<article class="project-copy-card card">
+<h2>Avito</h2>
+<p class="project-subtitle">услуги, работа</p>
+<p class="project-description">Работал в связке с командой маркетинга Авито услуги ремонт/работа. Основная задача: поддержка креативных концепций для социальных сетей в рамках брендбука. В сумме было сделано более 100 креативов.</p>
+</article>
+<div aria-label="Галерея проекта Avito" class="project-carousel" data-carousel="">
+<div class="carousel-track" data-carousel-track="">
+<div aria-label="Слайд 1 из 4" class="carousel-slide">
+<img decoding="async" alt="Проект Avito, слайд 1" loading="lazy" src="./assets/images/image-03.webp" width="900" height="900"/>
+</div>
+<div aria-label="Слайд 2 из 4" class="carousel-slide">
+<img decoding="async" alt="Проект Avito, слайд 2" loading="lazy" src="./assets/images/image-04.webp" width="900" height="900"/>
+</div>
+<div aria-label="Слайд 3 из 4" class="carousel-slide">
+<img decoding="async" alt="Проект Avito, слайд 3" loading="lazy" src="./assets/images/image-05.webp" width="900" height="900"/>
+</div>
+<div aria-label="Слайд 4 из 4" class="carousel-slide">
+<img decoding="async" alt="Проект Avito, слайд 4" loading="lazy" src="./assets/images/image-06.webp" width="900" height="900"/>
+</div>
+</div>
+<div aria-label="Переключение слайдов" class="carousel-dots">
+<button aria-label="Показать слайд 1" class="carousel-dot is-active" data-slide-to="0" type="button"></button>
+<button aria-label="Показать слайд 2" class="carousel-dot" data-slide-to="1" type="button"></button>
+<button aria-label="Показать слайд 3" class="carousel-dot" data-slide-to="2" type="button"></button>
+<button aria-label="Показать слайд 4" class="carousel-dot" data-slide-to="3" type="button"></button>
+</div>
+<div class="carousel-controls">
+<button aria-label="Предыдущий слайд" class="carousel-button" data-carousel-prev="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M15 5L8 12L15 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Следующий слайд" class="carousel-button" data-carousel-next="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M9 5L16 12L9 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="domru">
+<div class="project-feature project-feature--domru">
+<div aria-label="Галерея проекта Дом.ру" class="project-carousel" data-carousel="">
+<div class="carousel-track" data-carousel-track=""><div aria-label="Слайд 1 из 5" class="carousel-slide"><img decoding="async" alt="Проект Дом.ру, слайд 1" loading="lazy" src="./assets/images/image-07.webp" width="900" height="900"/></div><div aria-label="Слайд 2 из 5" class="carousel-slide"><img decoding="async" alt="Проект Дом.ру, слайд 2" loading="lazy" src="./assets/images/image-08.webp" width="900" height="900"/></div><div aria-label="Слайд 3 из 5" class="carousel-slide"><img decoding="async" alt="Проект Дом.ру, слайд 3" loading="lazy" src="./assets/images/image-09.webp" width="900" height="900"/></div><div aria-label="Слайд 4 из 5" class="carousel-slide"><img decoding="async" alt="Проект Дом.ру, слайд 4" loading="lazy" src="./assets/images/image-10.webp" width="900" height="900"/></div><div aria-label="Слайд 5 из 5" class="carousel-slide"><img decoding="async" alt="Проект Дом.ру, слайд 5" loading="lazy" src="./assets/images/image-11.webp" width="900" height="900"/></div></div>
+<div aria-label="Переключение слайдов" class="carousel-dots"><button aria-label="Показать слайд 1" class="carousel-dot is-active" data-slide-to="0" type="button"></button><button aria-label="Показать слайд 2" class="carousel-dot" data-slide-to="1" type="button"></button><button aria-label="Показать слайд 3" class="carousel-dot" data-slide-to="2" type="button"></button><button aria-label="Показать слайд 4" class="carousel-dot" data-slide-to="3" type="button"></button><button aria-label="Показать слайд 5" class="carousel-dot" data-slide-to="4" type="button"></button></div>
+<div class="carousel-controls">
+<button aria-label="Предыдущий слайд" class="carousel-button" data-carousel-prev="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M15 5L8 12L15 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Следующий слайд" class="carousel-button" data-carousel-next="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M9 5L16 12L9 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<article class="project-copy-card card">
+<h2>Дом.ру</h2>
+<p class="project-subtitle">Дом.ру — федеральный телекоммуникационный оператор и ведущий российский провайдер</p>
+<p class="project-description">Работал с inhome-командой маркетинга Дом.ру. Основная задача: разработка креативных концепций для социальных сетей в рамках брендбука. Главное достижение: внедрение ИИ в креативы. В сумме было сделано более 170 постов.</p>
+</article>
+</div>
+</section><section class="section" id="design-agency">
+<div class="project-feature project-feature--design">
+<article class="project-copy-card card">
+<h2>Deasign agency</h2>
+<p class="project-description">
+        В рамках работы с Deasign agency я создавал визуальный контент
+        (посты и сторис) для их собственных социальных сетей.
+        Моя задача заключалась в том, чтобы превратить портфолио
+        и экспертизу агентства в живые и вовлекающие форматы.
+        <br/><br/>
+        За год приложил руку к 12 крупным проектам.
+        Также принимал непосредственное участие в оформлении презентаций
+        для тендеров и исследований.
+      </p>
+</article>
+<div aria-label="Галерея проекта Deasign agency" class="project-carousel" data-carousel="">
+<div class="carousel-track" data-carousel-track=""><div aria-label="Слайд 1 из 4" class="carousel-slide"><img decoding="async" alt="Проект Deasign agency, слайд 1" loading="lazy" src="./assets/images/image-12.webp" width="900" height="900"/></div><div aria-label="Слайд 2 из 4" class="carousel-slide"><img decoding="async" alt="Проект Deasign agency, слайд 2" loading="lazy" src="./assets/images/image-13.webp" width="900" height="900"/></div><div aria-label="Слайд 3 из 4" class="carousel-slide"><img decoding="async" alt="Проект Deasign agency, слайд 3" loading="lazy" src="./assets/images/image-14.webp" width="900" height="900"/></div><div aria-label="Слайд 4 из 4" class="carousel-slide"><img decoding="async" alt="Проект Deasign agency, слайд 4" loading="lazy" src="./assets/images/image-15.webp" width="900" height="900"/></div></div>
+<div aria-label="Переключение слайдов" class="carousel-dots"><button aria-label="Показать слайд 1" class="carousel-dot is-active" data-slide-to="0" type="button"></button><button aria-label="Показать слайд 2" class="carousel-dot" data-slide-to="1" type="button"></button><button aria-label="Показать слайд 3" class="carousel-dot" data-slide-to="2" type="button"></button><button aria-label="Показать слайд 4" class="carousel-dot" data-slide-to="3" type="button"></button></div>
+<div class="carousel-controls">
+<button aria-label="Предыдущий слайд" class="carousel-button" data-carousel-prev="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M15 5L8 12L15 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Следующий слайд" class="carousel-button" data-carousel-next="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M9 5L16 12L9 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</section><section class="section" id="snow-green">
+<div class="project-feature project-feature--snow">
+<div aria-label="Галерея проекта Snow Green" class="project-carousel" data-carousel="">
+<div class="carousel-track" data-carousel-track=""><div aria-label="Слайд 1 из 4" class="carousel-slide"><img decoding="async" alt="Проект Snow Green, слайд 1" loading="lazy" src="./assets/images/image-16.webp" width="900" height="900"/></div><div aria-label="Слайд 2 из 4" class="carousel-slide"><img decoding="async" alt="Проект Snow Green, слайд 2" loading="lazy" src="./assets/images/image-17.webp" width="900" height="900"/></div><div aria-label="Слайд 3 из 4" class="carousel-slide"><img decoding="async" alt="Проект Snow Green, слайд 3" loading="lazy" src="./assets/images/image-18.webp" width="900" height="900"/></div><div aria-label="Слайд 4 из 4" class="carousel-slide"><img decoding="async" alt="Проект Snow Green, слайд 4" loading="lazy" src="./assets/images/image-19.webp" width="900" height="900"/></div></div>
+<div aria-label="Переключение слайдов" class="carousel-dots"><button aria-label="Показать слайд 1" class="carousel-dot is-active" data-slide-to="0" type="button"></button><button aria-label="Показать слайд 2" class="carousel-dot" data-slide-to="1" type="button"></button><button aria-label="Показать слайд 3" class="carousel-dot" data-slide-to="2" type="button"></button><button aria-label="Показать слайд 4" class="carousel-dot" data-slide-to="3" type="button"></button></div>
+<div class="carousel-controls">
+<button aria-label="Предыдущий слайд" class="carousel-button" data-carousel-prev="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M15 5L8 12L15 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Следующий слайд" class="carousel-button" data-carousel-next="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M9 5L16 12L9 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<article class="project-copy-card card">
+<h2>Snow Green</h2>
+<p class="project-subtitle">
+        Snow Green — это популярная линейка экологичной
+        и гипоаллергенной бытовой химии, созданная
+        с применением корейских технологий.
+      </p>
+<p class="project-description">
+        Проект Snow Green мы реализовали в составе дизайн-команды
+        Deasign Agency. Я обеспечивал регулярный выпуск статичного
+        и анимационного контента для соцсетей.
+      </p>
+</article>
+</div>
+</section><section class="section" id="nutridrink">
+<div class="project-feature project-feature--nutridrink">
+<article class="project-copy-card card">
+<h2>Nutridrink</h2>
+<p class="project-subtitle">
+        Nutridrink — это специализированное высокобелковое
+        и высококалорийное питание для взрослых,
+        разработанное брендом Nutricia.
+      </p>
+<p class="project-description">
+        Для бренда лечебного питания Nutridrink мы с командой
+        агентства разработали визуальное оформление социальных сетей.
+        Я отвечал за адаптацию фирменного стиля под форматы
+        соцсетей: создавал шаблоны для постов и сторис,
+        подбирал визуальные решения, которые транслируют заботу,
+        надёжность и экспертизу бренда в области
+        восстановительного питания.
+      </p>
+</article>
+<div aria-label="Галерея проекта Nutridrink" class="project-carousel" data-carousel="">
+<div class="carousel-track" data-carousel-track=""><div aria-label="Слайд 1 из 5" class="carousel-slide"><img decoding="async" alt="Проект Nutridrink, слайд 1" loading="lazy" src="./assets/images/image-20.webp" width="900" height="900"/></div><div aria-label="Слайд 2 из 5" class="carousel-slide"><img decoding="async" alt="Проект Nutridrink, слайд 2" loading="lazy" src="./assets/images/image-21.webp" width="900" height="900"/></div><div aria-label="Слайд 3 из 5" class="carousel-slide"><img decoding="async" alt="Проект Nutridrink, слайд 3" loading="lazy" src="./assets/images/image-22.webp" width="900" height="904"/></div><div aria-label="Слайд 4 из 5" class="carousel-slide"><img decoding="async" alt="Проект Nutridrink, слайд 4" loading="lazy" src="./assets/images/image-23.webp" width="900" height="904"/></div><div aria-label="Слайд 5 из 5" class="carousel-slide"><img decoding="async" alt="Проект Nutridrink, слайд 5" loading="lazy" src="./assets/images/image-24.webp" width="900" height="900"/></div></div>
+<div aria-label="Переключение слайдов" class="carousel-dots"><button aria-label="Показать слайд 1" class="carousel-dot is-active" data-slide-to="0" type="button"></button><button aria-label="Показать слайд 2" class="carousel-dot" data-slide-to="1" type="button"></button><button aria-label="Показать слайд 3" class="carousel-dot" data-slide-to="2" type="button"></button><button aria-label="Показать слайд 4" class="carousel-dot" data-slide-to="3" type="button"></button><button aria-label="Показать слайд 5" class="carousel-dot" data-slide-to="4" type="button"></button></div>
+<div class="carousel-controls">
+<button aria-label="Предыдущий слайд" class="carousel-button" data-carousel-prev="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M15 5L8 12L15 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Следующий слайд" class="carousel-button" data-carousel-next="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M9 5L16 12L9 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="nabeglavi">
+<div class="project-feature project-feature--reverse">
+<svg aria-hidden="true" class="project-heart" fill="none" viewBox="0 0 32 32">
+<path d="M16 27.5S5 20.9 5 11.8C5 7.8 7.6 5 11.2 5C13.5 5 15 6.3 16 8C17 6.3 18.5 5 20.8 5C24.4 5 27 7.8 27 11.8C27 20.9 16 27.5 16 27.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+</svg>
+<div aria-label="Галерея проекта Набеглави" class="project-carousel" data-carousel="">
+<div class="carousel-track" data-carousel-track="">
+<div aria-label="Слайд 1 из 5" class="carousel-slide">
+<img decoding="async" alt="Проект Набеглави, слайд 1" loading="lazy" src="./assets/images/image-25.webp" width="780" height="975"/>
+</div>
+<div aria-label="Слайд 2 из 5" class="carousel-slide">
+<img decoding="async" alt="Проект Набеглави, слайд 2" loading="lazy" src="./assets/images/image-26.webp" width="780" height="975"/>
+</div>
+<div aria-label="Слайд 3 из 5" class="carousel-slide">
+<img decoding="async" alt="Проект Набеглави, слайд 3" loading="lazy" src="./assets/images/image-27.webp" width="780" height="975"/>
+</div>
+<div aria-label="Слайд 4 из 5" class="carousel-slide">
+<img decoding="async" alt="Проект Набеглави, слайд 4" loading="lazy" src="./assets/images/image-28.webp" width="780" height="975"/>
+</div>
+<div aria-label="Слайд 5 из 5" class="carousel-slide">
+<img decoding="async" alt="Проект Набеглави, слайд 5" loading="lazy" src="./assets/images/image-29.webp" width="780" height="975"/>
+</div>
+</div>
+<div aria-label="Переключение слайдов" class="carousel-dots">
+<button aria-label="Показать слайд 1" class="carousel-dot is-active" data-slide-to="0" type="button"></button>
+<button aria-label="Показать слайд 2" class="carousel-dot" data-slide-to="1" type="button"></button>
+<button aria-label="Показать слайд 3" class="carousel-dot" data-slide-to="2" type="button"></button>
+<button aria-label="Показать слайд 4" class="carousel-dot" data-slide-to="3" type="button"></button>
+<button aria-label="Показать слайд 5" class="carousel-dot" data-slide-to="4" type="button"></button>
+</div>
+<div class="carousel-controls">
+<button aria-label="Предыдущий слайд" class="carousel-button" data-carousel-prev="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M15 5L8 12L15 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button aria-label="Следующий слайд" class="carousel-button" data-carousel-next="" type="button">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+<path d="M9 5L16 12L9 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<article class="project-copy-card card">
+<h2>Набеглави</h2>
+<p class="project-subtitle">Природная лечебно-столовая вода родом из Грузии.</p>
+<p class="project-description">Продукт выходил на рынок России. Для этого мы с командой придумали уникальное визуальное решение согласно брендбуку клиента. Оно подчёркивало уникальность продукта и помогло отстроиться от конкурентов.<br/><br/>Моя роль заключалась в обеспечении бесперебойного выхода качественного контента в социальных сетях строго по утверждённому контент-плану.</p>
+</article>
+</div>
+</section>
+<section class="section" id="approach">
+<article class="approach-card card">
+<h2>Проблемы, которые превращаются<br/>в решения</h2>
+<div class="approach-copy">
+<p>
+        За каждым проектом в этом портфолио стоит системный подход:
+        анализ ниши, работа в команде, строгий контроль качества
+        и постоянный поиск визуальных решений, которые работают
+        на отстройку от конкурентов.
+      </p>
+<p>
+        Я не копирую чужие решения. Для каждого бренда ищу
+        свой визуальный язык, который помогает выделиться и запомниться.
+      </p>
+<p>
+        Каждый элемент в моих креативах работает
+        на конкретную задачу.
+      </p>
+</div>
+</article>
+</section><section class="section section--thanks-image" id="thanks-banner">
+<div class="thanks-image-wrap">
+<img decoding="async" alt="Спасибо за внимание!" loading="lazy" src="./assets/images/image-30.webp" width="1564" height="350"/>
+</div>
+</section>
+</main>
+<footer class="footer" id="contacts">
+<p class="footer-name">Александр Петухов</p>
+<div class="contacts">
+<a aria-label="Позвонить Александру Петухову" class="contact" href="tel:+79969515329">
+<span aria-hidden="true" class="contact-icon contact-icon--phone">
+<svg fill="none" viewBox="0 0 32 44">
+<rect fill="currentColor" height="40" rx="5" width="22" x="5" y="2"></rect>
+<circle cx="16" cy="35" fill="#1c1c1e" r="2.2"></circle>
+</svg>
+</span>
+<span>+7 996 951-53-29</span>
+</a>
+<a aria-label="Открыть Telegram @whit_noise" class="contact" href="https://t.me/whit_noise" rel="noopener noreferrer" target="_blank">
+<span aria-hidden="true" class="contact-icon contact-icon--telegram">
+<svg fill="none" viewBox="0 0 48 48">
+<path d="M43 7L5 22.5L18.6 27.2L23.8 42L43 7Z" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M18.6 27.2L33.2 15.6" stroke="#1c1c1e" stroke-linecap="round" stroke-width="2.2"></path>
+</svg>
+</span>
+<span>@whit_noise</span>
+</a>
+</div>
+</footer>
+</div>
+<script>
+    (() => {
+      const title = document.querySelector(".hero-title");
+      const frame = document.querySelector(".hero-main");
+
+      if (!title || !frame) return;
+
+      const fitTitle = () => {
+        title.style.fontSize = "";
+
+        const frameStyles = getComputedStyle(frame);
+        const availableWidth =
+          frame.clientWidth -
+          parseFloat(frameStyles.paddingLeft) -
+          parseFloat(frameStyles.paddingRight);
+
+        let size = parseFloat(getComputedStyle(title).fontSize);
+        const minimumSize = 42;
+
+        while (title.scrollWidth > availableWidth && size > minimumSize) {
+          size -= 1;
+          title.style.fontSize = `${size}px`;
+        }
+      };
+
+      const scheduleFit = () => requestAnimationFrame(fitTitle);
+
+      if (document.fonts?.ready) {
+        document.fonts.ready.then(scheduleFit);
+      } else {
+        window.addEventListener("load", scheduleFit, { once: true });
+      }
+
+      window.addEventListener("resize", scheduleFit);
+      scheduleFit();
+    })();
+  </script>
+<script>
+    (() => {
+      document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+        const track = carousel.querySelector("[data-carousel-track]");
+        const slides = [...carousel.querySelectorAll(".carousel-slide")];
+        const dots = [...carousel.querySelectorAll("[data-slide-to]")];
+        const prev = carousel.querySelector("[data-carousel-prev]");
+        const next = carousel.querySelector("[data-carousel-next]");
+
+        if (!track || slides.length === 0) return;
+
+        let index = 0;
+        let pointerStartX = null;
+
+        const showSlide = (nextIndex) => {
+          index = (nextIndex + slides.length) % slides.length;
+          track.style.transform = `translateX(-${index * 100}%)`;
+
+          dots.forEach((dot, dotIndex) => {
+            const active = dotIndex === index;
+            dot.classList.toggle("is-active", active);
+            dot.setAttribute("aria-current", active ? "true" : "false");
+          });
+        };
+
+        prev?.addEventListener("click", () => showSlide(index - 1));
+        next?.addEventListener("click", () => showSlide(index + 1));
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            showSlide(Number(dot.dataset.slideTo));
+          });
+        });
+
+        carousel.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowLeft") showSlide(index - 1);
+          if (event.key === "ArrowRight") showSlide(index + 1);
+        });
+
+        carousel.addEventListener("pointerdown", (event) => {
+          pointerStartX = event.clientX;
+        });
+
+        carousel.addEventListener("pointerup", (event) => {
+          if (pointerStartX === null) return;
+
+          const distance = event.clientX - pointerStartX;
+          pointerStartX = null;
+
+          if (Math.abs(distance) < 45) return;
+          showSlide(distance > 0 ? index - 1 : index + 1);
+        });
+
+        carousel.tabIndex = 0;
+        showSlide(0);
+      });
+    })();
+  </script>
+</body>
+</html>
